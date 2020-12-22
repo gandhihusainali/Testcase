@@ -1,11 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Wisc-Online Game</title>
+    <script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="lib/SCORM_API_wrapper.js"></script>
+    <script type="text/javascript" src="lib/ScormHelper.js"></script>
+    <script type="text/javascript" src="src/createjs.min.js"></script>
+    <script type="text/javascript" src="src/gameData.js"></script>
+    <script type="text/javascript" src="src/game.js"></script>
+    <script type="text/javascript">
+        function onUnload() {
+
+            ScormHelper.cmi.exit("");
+
+            ScormHelper.terminate();
+        }
+    </script>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #gameContainer canvas {
+            border: #707070 solid 1px;
+            border-radius: 5px;
+            display: block;
+            width: 800px;
+            height: 600px;
+            margin: 15px auto;
+        }
+
+        #licenseContainer{
+            margin-top: 15px;
+            width: 800px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
-<body>
-    <h1 style="text-align: center;">Test Case</h1>
+<body onbeforeunload="onUnload();">
+    <div id="gameContainer">
+        <canvas width="800" height="600">
+            <h3>Your browser does not support HTML5.</h3>
+        </canvas>
+        <script type="text/javascript">
+            (function () {
+                var canvas = (function () {
+                    var scripts = document.getElementsByTagName('script');
+                    var targetDiv = scripts[scripts.length - 1].previousElementSibling || scripts[scripts.length - 1].previousSibling;
+                    return targetDiv;
+                })();
+
+                gameData.assetsPath = "src/";
+
+                if (gameData.Title) {
+                    document.title = gameData.Title;
+                }
+
+                var game = new Game(canvas, gameData);
+
+                $(function () {
+                    $("#gameTitleSpan").text(gameData.Title);
+                });
+            })();
+        </script>
+    </div>
+    <div id="licenseContainer">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+            <img alt="Creative Commons License" style="border-width: 0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+        </a>
+        <div>
+            <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title" id="gameTitleSpan">This game</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Fox Valley Technical College</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+                    <p>
+                        This workforce product was funded by a grant awarded by the U.S. Department of Labor’s Employment and Training Administration. The product was created by the grantee and does not necessarily reflect the official position of the U.S. Department of Labor. The U.S. Department of Labor makes no guarantees, warranties, or assurances of any kind, express or implied, with respect to such information, including any information on linked sites and including, but not limited to, accuracy of the information or its completeness, timeliness, usefulness, adequacy, continued availability, or ownership. This is an equal opportunity program. Assistive technologies are available upon request and include Voice/TTY (771 or 800-947-6644).
+                    </p>
+        </div>
+    </div>
 </body>
 </html>

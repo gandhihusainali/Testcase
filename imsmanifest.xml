@@ -1,0 +1,51 @@
+<?xml version="1.0" standalone="no"?>
+<manifest identifier="completionExample" version="1.0" xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3" xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3" xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3" xmlns:imsss="http://www.imsglobal.org/xsd/imsss" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd&#xD;&#xA;			http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd&#xD;&#xA;			http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd&#xD;&#xA;			http://www.adlnet.org/xsd/adlseq_v1p3 adlseq_v1p3.xsd&#xD;&#xA;			http://www.adlnet.org/xsd/adlnav_v1p3 adlnav_v1p3.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>2004 3rd Edition</schemaversion>
+  </metadata>
+  <organizations default="org_wisconline_115443">
+    <organization identifier="org_wisconline_115443">
+      <title>AIM</title>
+      <item identifier="flashcardItem" identifierref="flashcardItem_resource">
+        <title>AIM</title>
+        <imsss:sequencing>
+          <imsss:controlMode choiceExit="true" />
+          <imsss:deliveryControls completionSetByContent="true" objectiveSetByContent="true" />
+        </imsss:sequencing>
+      </item>
+      <imsss:sequencing>
+        <imsss:controlMode flow="true" />
+      </imsss:sequencing>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="flashcardItem_resource" adlcp:scormType="sco" href="index.html" type="webcontent">
+      <file href="index.html" />
+      <file href="lib/SCORM_API_wrapper.js" />
+      <file href="lib/ScormHelper.js" />
+      <file href="lib/jquery-1.11.1.min.js" />
+      <file href="lib/createjs-2015.11.26.min.js" />
+      <file href="src/activateHelp.mp3" />
+      <file href="src/audienceApplause.mp3" />
+      <file href="src/audienceAww.mp3" />
+      <file href="src/buildYourKnowledgeInstructions.png" />
+      <file href="src/buttonClickDry.mp3" />
+      <file href="src/buzz.mp3" />
+      <file href="src/byk_game_image.png" />
+      <file href="src/createjs.min.js" />
+      <file href="src/game.js" />
+      <file href="src/gameFinished.mp3" />
+      <file href="src/instructions_background.png" />
+      <file href="src/instructions_question.png" />
+      <file href="src/musicOff.png" />
+      <file href="src/musicOn.png" />
+      <file href="src/openingMelody.mp3" />
+      <file href="src/plain_background.jpg" />
+      <file href="src/start_button.png" />
+      <file href="src/test.html" />
+      <file href="src/title_background.jpg" />
+      <file href="src/tone.mp3" />
+    </resource>
+  </resources>
+</manifest>
